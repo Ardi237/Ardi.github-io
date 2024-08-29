@@ -17,3 +17,18 @@ for (let i = 0; i < elemArr.length; i++) {
     overlay.classList.toggle("active");
   });
 }
+
+
+
+/**
+ * toggle navbar & overlay when click any navbar-link
+ */
+
+const navbarLinks = document.querySelectorAll("[data-navbar-link]");
+
+for (let i = 0; i < navbarLinks.length; i++) {
+  navbarLinks[i].addEventListener("click", function () {
+    navbar.classList.toggle("active");
+    overlay.classList.toggle("active");
+  });
+}
