@@ -32,3 +32,4 @@ for (let i = 0; i < navbarLinks.length; i++) {
     overlay.classList.toggle("active");
   });
 }
+
