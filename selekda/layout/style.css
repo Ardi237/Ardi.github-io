@@ -597,6 +597,13 @@ body {
   padding: 20px;
   box-shadow: var(--shadow);
   border-radius: var(--radius-12);
+  cursor: pointer;
+
+}
+
+.blog-card .touch {
+    display: inline;
+    cursor: pointer;
 }
 
 .blog-card .banner {
@@ -642,7 +649,6 @@ body {
   font-weight: var(--fw-500);
   padding-block-end: 10px;
 }
-
 .blog-card .meta .star ion-icon {
   color: var(--winter-sky);
   font-size: 22px;
@@ -662,8 +668,6 @@ body {
   color: inherit;
   margin-inline-start: auto;
 }
-
-
 
 /*-----------------------------------*\
   #RESPONS
@@ -735,7 +739,6 @@ body {
   align-items: start;
 }
 
-
 /*-----------------------------------*\
   #PORTOFOLIO
 \*-----------------------------------*/
@@ -744,13 +747,13 @@ body {
   padding-block-end: 120px;
 }
 
-.portofolio-list { 
+.portofolio-list {
   display: block;
   gap: 30px;
 }
 
 .portofolio-card {
-  width:100%;
+  width: 100%;
   height: 50%;
   box-shadow: var(--shadow);
   border-radius: var(--radius-12);
@@ -803,8 +806,8 @@ body {
   padding-block-end: 10px;
 }
 
-.portofolio-card .meta .star a{
-    background-color: var(--white);
+.portofolio-card .meta .star a {
+  background-color: var(--white);
   color: var(--winter-sky);
   font-size: 18px;
   padding: 8px;
@@ -815,7 +818,6 @@ body {
   background-image: var(--gradient-2);
   color: var(--white);
 }
-
 
 /*-----------------------------------*\
   #FOOTER
@@ -998,6 +1000,7 @@ body {
     padding: 30px;
   }
 
+
   .blog-card .banner {
     margin-block-end: 0;
   }
@@ -1005,6 +1008,8 @@ body {
   .blog-card .banner a {
     height: 100%;
   }
+
+  
 
   /**
    * RESPON
@@ -1025,7 +1030,6 @@ body {
     height: 100%;
   }
 
-  
   /**
    * PORTOFOLIO
    */
@@ -1042,20 +1046,19 @@ body {
     margin-block-end: 0;
     border: 1px solid gray;
     border-radius: 100%;
-     transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
   }
 
   .portofolio-card .banner:hover {
     margin-block-end: 0;
     border: 1px solid gray;
     border-radius: 100%;
-     transform: scale(1.1);
+    transform: scale(1.1);
   }
 
   .portofolio-card .banner a {
     height: 100%;
   }
-
 
   /**
    * FOOTER
@@ -1128,7 +1131,6 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 25px;
   }
-
 
   /**
    * FOOTER
@@ -1301,8 +1303,11 @@ body {
     grid-template-columns: 1fr 1fr;
   }
 
+
   .blog-card {
-    height: 100%;
+     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .blog-card .content {
@@ -1310,7 +1315,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
   }
-
 
   /**
    * RESPON
@@ -1329,7 +1333,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
   }
-
 
   /**
    * PORTOFOLIO

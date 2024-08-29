@@ -33,3 +33,20 @@ for (let i = 0; i < navbarLinks.length; i++) {
   });
 }
 
+
+
+// URL for BLOG
+document.addEventListener("DOMContentLoaded", function () {
+  const blogCards = document.querySelectorAll(".blog-card");
+
+  blogCards.forEach(function (card) {
+    card.addEventListener("click", function () {
+      const url = card.getAttribute("data-url");
+
+      if (url) {
+        window.location.href = url;
+      }
+    });
+  });
+});
+
