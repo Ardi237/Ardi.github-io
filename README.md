@@ -13,5 +13,6 @@ Sebelum anda mengecek source yang telah saya buat ada beberapa hal yang harus di
 Itu saja dari saya, Terimakasih banyak. :)
 
 * bonus :
-link repository : https://github.com/Ardi237/Ardi.github-io.git
+link repository : https://github.com/Ardi237/Ardi237.github.io
+||
 link website : https://ardi237.github.io/selekda/layout/index.html
