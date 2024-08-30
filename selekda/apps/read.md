@@ -11,3 +11,7 @@ Sebelum anda mengecek source yang telah saya buat ada beberapa hal yang harus di
 3. Jika ingin melihat komentar pada blok pada saat baru memasuki web, silahkan tekan 2 kali untuk pertama kali.
 
 Itu saja dari saya, Terimakasih banyak. :)
+
+* bonus :
+link repository : https://github.com/Ardi237/Ardi.github-io.git
+link website : https://ardi237.github.io/
