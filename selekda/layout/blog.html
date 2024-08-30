@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta tags -->
+    <meta name="description" content="this is a selekda website" />
+    <meta name="author" content="ardi" />
+
+    <!-- Webpage Title -->
+    <title>WebTech Website</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+
+    <!-- custom css link -->
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      :root {
+        /**
+   * colors
+   */
+
+        --st-patricks-blue: hsl(236, 57%, 28%);
+        --amaranth-purple: hsl(335, 88%, 38%);
+        --royal-blue-dark: hsl(231, 68%, 21%);
+        --chrome-yellow: hsl(39, 100%, 52%);
+        --space-cadet-1: hsl(230, 41%, 25%);
+        --space-cadet-2: hsl(230, 59%, 16%);
+        --winter-sky_50: hsla(335, 87%, 53%, 0.5);
+        --purple-navy: hsl(236, 26%, 43%);
+        --ksu-purple: hsl(275, 54%, 33%);
+        --winter-sky: hsl(335, 87%, 53%);
+        --razzmatazz: hsl(335, 87%, 51%);
+        --platinum: hsl(0, 0%, 90%);
+        --black_70: hsla(0, 0%, 0%, 0.7);
+        --rajah: hsl(29, 99%, 67%);
+        --white: hsl(0, 0%, 100%);
+        --random1: hsl(0, 2%, 76%);
+        --random2: hsl(0, 1%, 85%);
+        --random3: hsl(29, 95%, 74%);
+        --gradient-1: linear-gradient(
+          90deg,
+          var(--random2) 0,
+          var(--platinum) 51%,
+          var(--random1)
+        );
+        --gradient-2: linear-gradient(90deg, var(--razzmatazz), var(--rajah));
+
+        /*** typography*/
+
+        --ff-source-sans-pro: "Source Sans Pro", sans-serif;
+        --ff-poppins: "Poppins", sans-serif;
+
+        --fs-1: 4.2rem;
+        --fs-2: 3.8rem;
+        --fs-3: 3.2rem;
+        --fs-4: 2.5rem;
+        --fs-5: 2.4rem;
+        --fs-6: 2rem;
+        --fs-7: 1.8rem;
+        --fs-8: 1.5rem;
+
+        --fw-500: 500;
+        --fw-600: 600;
+        --fw-700: 700;
+
+        /*** border radius*/
+
+        --radius-4: 4px;
+        --radius-12: 12px;
+
+        /*** spacing*/
+
+        --section-padding: 60px;
+
+        /*** transition */
+
+        --transition-1: 0.15s ease;
+        --transition-2: 0.35s ease;
+        --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+        --cubic-out: cubic-bezier(0.33, 0.85, 0.56, 1.02);
+
+        /*** shadow */
+
+        --shadow: 0 5px 20px 1px hsla(220, 63%, 33%, 0.1);
+      }
+
+      /*** NAVBAR */
+
+      .navbar-list .navbar-item .navbar-link {
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: color 0.3s ease, color 0.3s ease;
+      }
+
+      .navbar-list .navbar-item .navbar-link:hover {
+        color: var(--royal-blue-dark);
+      }
+
+      /* Container */
+      .hero-content {
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 12px;
+      }
+
+      .container .hero-content .hero-text,
+      .container .hero-content .hero-subtitle,
+      .container .hero-content .hero-title {
+        color: var(--black_70);
+        text-align: justify;
+      }
+
+      .meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .publish-date {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: start;
+        cursor: pointer;
+        gap: 5px;
+        color: var(--black_70);
+        transition: color 0.3s ease;
+      }
+
+      .publish-date ion-icon {
+        transition: color 0.3s ease;
+      }
+
+      .publish-date time {
+        font-size: 14px;
+        transition: color 0.3s ease;
+      }
+
+      .publish-date:hover {
+        color: red;
+      }
+
+      .publish-date:hover ion-icon,
+      .publish-date:hover time {
+        color: red;
+      }
+
+      /* comments */
+
+      .comments {
+        width: 100%;
+        grid-column: 1 / -1;
+        border-radius: 12px;
+        position: relative;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .comments-header {
+        margin-bottom: 20px;
+      }
+
+      .comments .comments-content {
+        position: relative;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        display: flex;
+      }
+
+      .comments .comments-content .comments-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 24px;
+        background-color: var(--white);
+        color: var(--purple-navy);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+      }
+
+      .comments .comments-content .comments-icon:hover {
+        background-color: var(--purple-navy);
+        color: var(--white);
+      }
+
+      .comments .comments-input {
+        margin-left: 1rem;
+        flex: 1;
+      }
+
+      .comments .comments-input .input {
+        width: 100%;
+        padding: 10px;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid var(--purple-navy);
+        background: transparent;
+        outline: none;
+        transition: border-color 0.2s ease;
+        font-size: 16px;
+        color: var(--purple-navy);
+      }
+
+      .comments .comments-input .input:focus {
+        border-color: 1px solid rgb(173, 172, 172);;
+      }
+
+      .comments .comments-input .input::placeholder {
+        color: var(--purple-navy);
+        opacity: 0.7;
+      }
+
+      .filter {
+        color: var(--black_70);
+        margin-left: 14rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: color 0.3s ease;
+      }
+
+      .filter:hover {
+        color: var(--winter-sky);
+        cursor: pointer;
+      }
+
+      /* Comment Button */
+      .comments-button {
+        display: none;
+      }
+
+      .comments-button a {
+        display: inline-block;
+        padding: 5px 15px;
+        font-size: 16px;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, color 0.3s ease,
+          transform 0.3s ease;
+      }
+
+      .comments-button a:hover {
+        transform: scale(1.05);
+      }
+
+      /* Tombol Batal */
+      .comments-button a:first-child {
+        background-color: var(--white);
+        color: var(--purple-navy);
+        border: 2px solid var(--purple-navy);
+      }
+
+      .comments-button a:first-child:hover {
+        background-color: var(--purple-navy);
+        color: var(--white);
+      }
+
+      /* Tombol Kirim */
+      .comments-button a:last-child {
+        background-color: var(--purple-navy);
+        color: var(--white);
+        border: 2px solid var(--purple-navy);
+      }
+
+      .comments-button a:last-child:hover {
+        background-color: var(--white);
+        color: var(--purple-navy); 
+      }
+    </style>
+    <!-- Styles -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" href="../design/logo_name_landing.png" />
+
+    <!-- Inline Style -->
+  </head>
+  <body id="top">
+    <!-- START OF HEADER -->
+    <header class="header" data-header>
+      <div class="container">
+        <div class="overlay" data-overlay></div>
+
+        <a href="#">
+          <h1 class="logo"><img src="../design/logo_landing.png" alt="" /></h1>
+        </a>
+
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <a href="#" class="logo">Desinic</a>
+
+            <button
+              class="nav-close-btn"
+              aria-label="Close Menu"
+              data-nav-close-btn
+            >
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="#home" class="navbar-link" data-navbar-link>Home</a>
+            </li>
+
+            <li class="navbar-item">
+              <a href="#blog" class="navbar-link" data-navbar-link>Blog</a>
+            </li>
+
+            <li class="navbar-item">
+              <a href="#respon" class="navbar-link" id="res" data-navbar-link
+                >Respon</a
+              >
+            </li>
+
+            <li class="navbar-item">
+              <a href="#" class="navbar-link" data-navbar-link>Portofolio</a>
+            </li>
+          </ul>
+        </nav>
+
+        <a href="#" class="btn">
+          <ion-icon
+            name="chevron-forward-outline"
+            aria-hidden="true"
+          ></ion-icon>
+
+          <span>Login</span>
+        </a>
+
+        <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+      </div>
+    </header>
+    <!-- END OF HEADER -->
+
+    <!-- START OF HOME -->
+    <!-- START OF HOME -->
+    <main>
+      <article>
+        <!-- 
+        - #HERO
+      -->
+
+        <section class="hero" id="home">
+          <div class="container">
+            <div class="hero-content">
+              <h1 class="hero-subtitle">Ardi Okdianto</h1>
+
+              <h2 class="h2 hero-title">How to make web</h2>
+
+              <p class="hero-text">
+                Morbi sed lacus nec risus finibus feugiat et fermentum nibh.
+                Pellentesque vitae ante at elit fringilla ac at purus. Lorem
+                ipsum dolor, sit amet consectetur adipisicing elit. Odit vel,
+                sequi possimus doloremque aut quibusdam optio repudiandae animi,
+                unde non rerum architecto harum qui, quos molestias minus sint
+                deserunt sed tempora quisquam error adipisci perferendis cum!
+                Deleniti beatae itaque numquam dignissimos suscipit corrupti
+                dolor laboriosam modi aliquam cupiditate, mollitia unde!
+              </p>
+              <div class="meta">
+                <div class="publish-date">
+                  <ion-icon name="time-outline"></ion-icon>
+
+                  <time datetime="2022-03-07">7 March, 2022</time>
+                </div>
+                <div class="publish-date eye">
+                  <ion-icon name="eye-outline"></ion-icon>
+
+                  <time datetime="2022-03-07">7999</time>
+                </div>
+                <div class="publish-date human">
+                  <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+
+                  <time datetime="2022-03-07">41</time>
+                </div>
+              </div>
+            </div>
+            <figure class="home-banner">
+              <img
+                src="../design/images (5).png"
+                width="694"
+                height="529"
+                loading="lazy"
+                alt="hero-banner"
+                class="w-100 banner-animation"
+                style="
+                  width: 100%;
+                  height: 400px;
+                  background-image: url('your-image.jpg');
+                  background-size: cover;
+                  background-position: center;
+                  opacity: 0.5;
+                "
+              />
+            </figure>
+
+            <div class="comments">
+              <div class="comments-body" style="display: inline-flex">
+                <h1>9 comment</h1>
+                <div class="filter">
+                  <h1><ion-icon name="filter-outline"></ion-icon></h1>
+                  <h5>Urutkan</h5>
+                </div>
+              </div>
+              <div class="comments-content">
+                <div class="comments-icon">
+                  <ion-icon name="person-circle-outline"></ion-icon>
+                </div>
+                <div class="comments-input">
+                  <input
+                    type="text"
+                    class="input"
+                    placeholder="masukkan komentar"
+                  />
+                </div>
+              </div>
+                <div class="comments-button">
+                  <a href="#">Batal</a>
+                  <a href="#">Kirim</a>
+                </div>
+            </div>
+          </div>
+        </section>
+        <!-- END OF HOME -->
+      </article>
+    </main>
+    <!--  #GO TO TOP -->
+    <a href="#top" class="go-top active" aria-label="Go To Top" data-go-top>
+      <ion-icon name="arrow-up-outline"></ion-icon>
+    </a>
+
+    <!-- custom js link -->
+    <script src="script.js"></script>
+
+    <!--- ionicon link --->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  </body>
+</html>

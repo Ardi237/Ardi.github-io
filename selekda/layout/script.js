@@ -18,8 +18,6 @@ for (let i = 0; i < elemArr.length; i++) {
   });
 }
 
-
-
 /**
  * toggle navbar & overlay when click any navbar-link
  */
@@ -32,8 +30,6 @@ for (let i = 0; i < navbarLinks.length; i++) {
     overlay.classList.toggle("active");
   });
 }
-
-
 
 // URL for BLOG
 document.addEventListener("DOMContentLoaded", function () {
@@ -49,4 +45,60 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// Comment Action
+document
+  .querySelector(".publish-date.human")
+  .addEventListener("click", function () {
+    const commentSection = document.querySelector(".comments");
+    if (
+      commentSection.style.opacity === "0" ||
+      commentSection.style.visibility === "hidden"
+    ) {
+      commentSection.style.opacity = "1";
+      commentSection.style.visibility = "visible";
+    } else {
+      commentSection.style.opacity = "0";
+      commentSection.style.visibility = "hidden";
+    }
+  });
+
+document.querySelector("#res").addEventListener("click", function () {
+  const commentSection = document.querySelector(".comments");
+  if (
+    commentSection.style.opacity === "0" ||
+    commentSection.style.visibility === "hidden"
+  ) {
+    commentSection.style.opacity = "1";
+    commentSection.style.visibility = "visible";
+  } else {
+    commentSection.style.opacity = "0";
+    commentSection.style.visibility = "hidden";
+  }
+});
+
+// Input Action 
+const inputField = document.querySelector('.comments-input .input');
+const commentsButton = document.querySelector('.comments-button');
+const cancelButton = document.querySelector(".comments-button a:first-child");
+
+inputField.addEventListener('focus', () => {
+  commentsButton.style.display = 'flex';
+  commentsButton.style.justifyContent = 'flex-end';
+  commentsButton.style.gap = "1rem";
+});
+
+// Menambahkan event listener untuk blur pada input
+inputField.addEventListener('blur', () => {
+  // Mengatur delay untuk menunggu klik tombol sebelum menyembunyikan
+  setTimeout(() => {
+    commentsButton.style.display = 'none';
+  }, 200);
+});
+
+cancelButton.addEventListener("click", () => {
+  commentsButton.style.display = "none";
+  inputField.value = "";
+});
+
 
