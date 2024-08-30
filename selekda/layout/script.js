@@ -1,5 +1,4 @@
 "use strict";
-
 /**
  * navbar toggle
  */
@@ -46,6 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+// Default comment
+window.onload = function () {
+  const commentSection = document.querySelector(".comments");
+  commentSection.style.display = "none";
+};
+
+
 // Comment Action
 document
   .querySelector(".publish-date.human")
@@ -57,9 +64,11 @@ document
     ) {
       commentSection.style.opacity = "1";
       commentSection.style.visibility = "visible";
+      commentSection.style.display = "flex";
     } else {
       commentSection.style.opacity = "0";
       commentSection.style.visibility = "hidden";
+      commentSection.style.display = "none";
     }
   });
 
@@ -71,34 +80,35 @@ document.querySelector("#res").addEventListener("click", function () {
   ) {
     commentSection.style.opacity = "1";
     commentSection.style.visibility = "visible";
+    commentSection.style.display = "flex";
   } else {
     commentSection.style.opacity = "0";
     commentSection.style.visibility = "hidden";
+    commentSection.style.display = "none";
   }
 });
 
-// Input Action 
-const inputField = document.querySelector('.comments-input .input');
-const commentsButton = document.querySelector('.comments-button');
+// Input Action
+const inputField = document.querySelector(".comments-input .input");
+const commentsButton = document.querySelector(".comments-button");
 const cancelButton = document.querySelector(".comments-button a:first-child");
 
-inputField.addEventListener('focus', () => {
-  commentsButton.style.display = 'flex';
-  commentsButton.style.justifyContent = 'flex-end';
+inputField.addEventListener("focus", () => {
+  commentsButton.style.display = "flex";
+  commentsButton.style.justifyContent = "flex-end";
   commentsButton.style.gap = "1rem";
 });
 
 // Menambahkan event listener untuk blur pada input
-inputField.addEventListener('blur', () => {
+inputField.addEventListener("blur", () => {
   // Mengatur delay untuk menunggu klik tombol sebelum menyembunyikan
   setTimeout(() => {
-    commentsButton.style.display = 'none';
+    commentsButton.style.display = "none";
   }, 200);
 });
 
 cancelButton.addEventListener("click", () => {
+  event.preventDefault();
   commentsButton.style.display = "none";
   inputField.value = "";
 });
-
-

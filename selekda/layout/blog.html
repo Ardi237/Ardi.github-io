@@ -93,11 +93,12 @@
         border: none;
         border-radius: 4px;
         cursor: pointer;
+        color: var(--royal-blue-dark);
         transition: color 0.3s ease, color 0.3s ease;
       }
 
       .navbar-list .navbar-item .navbar-link:hover {
-        color: var(--royal-blue-dark);
+        color: var(--white);
       }
 
       /* Container */
@@ -137,6 +138,7 @@
       }
 
       .publish-date ion-icon {
+        font-size: 14px;
         transition: color 0.3s ease;
       }
 
@@ -152,6 +154,49 @@
       .publish-date:hover ion-icon,
       .publish-date:hover time {
         color: red;
+      }
+      .publish-date.human {
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .publish-date.human ion-icon {
+        margin-right: 5px;
+        transition: color 0.3s ease;
+      }
+
+      .publish-date.human time {
+        transition: color 0.3s ease;
+      }
+
+      .publish-date.human .comment-hint {
+        opacity: 0;
+        margin-left: 10px;
+        font-size: 1.3rem;
+
+        color: var(--royal-blue-dark);
+        white-space: nowrap;
+        transition: opacity 0.3s ease, margin-left 0.3s ease;
+        position: absolute;
+        left: 100%;
+        transform: translateX(10px);
+      }
+
+      .publish-date.human:hover ion-icon,
+      .publish-date.human:hover time {
+        color: var(--purple-navy);
+      }
+
+      .publish-date.human:hover .comment-hint {
+        opacity: 1;
+        margin-left: 15px;
+        transform: translateX(0);
+        background-color: white;
+        padding: 0.5rem;
+        border-radius: 30%;
       }
 
       /* comments */
@@ -183,7 +228,8 @@
         display: flex;
       }
 
-      .comments .comments-content .comments-icon {
+      .comments-icon {
+        flex-shrink: 0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -197,7 +243,7 @@
         transition: background-color 0.3s ease;
       }
 
-      .comments .comments-content .comments-icon:hover {
+      .comments-icon:hover {
         background-color: var(--purple-navy);
         color: var(--white);
       }
@@ -221,7 +267,7 @@
       }
 
       .comments .comments-input .input:focus {
-        border-color: 1px solid rgb(173, 172, 172);;
+        border-color: 1px solid rgb(173, 172, 172);
       }
 
       .comments .comments-input .input::placeholder {
@@ -283,7 +329,45 @@
 
       .comments-button a:last-child:hover {
         background-color: var(--white);
-        color: var(--purple-navy); 
+        color: var(--purple-navy);
+      }
+
+      .comments-people {
+        position: relative;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        display: flex;
+      }
+
+      .comments-people .comments-people-id {
+        margin-left: 1.5rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .comments-people .comments-footer {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: start;
+        margin-top: 2rem;
+        font-size: 14px;
+        cursor: pointer;
+        gap: 5px;
+        color: var(--black_70);
+        transition: color 0.3s ease;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--purple-navy);
+      }
+
+      .footer-top {
+        background: var(--ksu-purple);
+      }
+
+      .footer-bottom {
+        background: var(--royal-blue-dark);
       }
     </style>
     <!-- Styles -->
@@ -401,8 +485,8 @@
                 </div>
                 <div class="publish-date human">
                   <ion-icon name="chatbox-ellipses-outline"></ion-icon>
-
                   <time datetime="2022-03-07">41</time>
+                  <span class="comment-hint">Lihat komentar</span>
                 </div>
               </div>
             </div>
@@ -427,7 +511,7 @@
 
             <div class="comments">
               <div class="comments-body" style="display: inline-flex">
-                <h1>9 comment</h1>
+                <h1>4 comment</h1>
                 <div class="filter">
                   <h1><ion-icon name="filter-outline"></ion-icon></h1>
                   <h5>Urutkan</h5>
@@ -445,16 +529,291 @@
                   />
                 </div>
               </div>
-                <div class="comments-button">
-                  <a href="#">Batal</a>
-                  <a href="#">Kirim</a>
+              <div class="comments-button">
+                <a href="">Batal</a>
+                <a href="">Kirim</a>
+              </div>
+              <div class="comments-people">
+                <div class="comments-icon">
+                  <ion-icon name="person-circle-outline"></ion-icon>
                 </div>
+                <div class="comments-people-id">
+                  <div class="comments-header">
+                    <h3>Steven Chou</h3>
+                  </div>
+                  <div class="comments-body">
+                    <p>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      In aliquid qui tempora. Distinctio officia id fugiat
+                      laudantium odit! Labore omnis repellendus officiis sit
+                      natus. Nihil obcaecati illo ut error autem et magni?
+                      Itaque enim fugiat perferendis magni voluptatibus qui
+                      corrupti maiores praesentium ea, tempora culpa illo quia
+                      repudiandae velit quas.
+                    </p>
+                  </div>
+                  <div class="comments-footer">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="2022-03-07">7 March, 2022</time>
+                  </div>
+                </div>
+              </div>
+              <div class="comments-people">
+                <div class="comments-icon">
+                  <ion-icon name="person-circle-outline"></ion-icon>
+                </div>
+                <div class="comments-people-id">
+                  <div class="comments-header">
+                    <h3>Erick Decriano</h3>
+                  </div>
+                  <div class="comments-body">
+                    <p>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      In aliquid qui tempora. Distinctio officia id fugiat
+                      laudantium odit! Labore omnis repellendus officiis sit
+                      natus. Nihil obcaecati illo ut error autem et magni?
+                      Itaque enim fugiat perferendis magni voluptatibus qui
+                      corrupti maiores praesentium ea, tempora culpa illo quia
+                      repudiandae velit quas.
+                    </p>
+                  </div>
+                  <div class="comments-footer">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="2022-03-07">7 March, 2022</time>
+                  </div>
+                </div>
+              </div>
+              <div class="comments-people">
+                <div class="comments-icon">
+                  <ion-icon name="person-circle-outline"></ion-icon>
+                </div>
+                <div class="comments-people-id">
+                  <div class="comments-header">
+                    <h3>Junaedi</h3>
+                  </div>
+                  <div class="comments-body">
+                    <p>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      In aliquid qui tempora. Distinctio officia id fugiat
+                      laudantium odit! Labore omnis repellendus officiis sit
+                      natus. Nihil obcaecati illo ut error autem et magni?
+                      Itaque enim fugiat perferendis magni voluptatibus qui
+                      corrupti maiores praesentium ea, tempora culpa illo quia
+                      repudiandae velit quas.
+                    </p>
+                  </div>
+                  <div class="comments-footer">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="2022-03-07">7 March, 2022</time>
+                  </div>
+                </div>
+              </div>
+              <div class="comments-people">
+                <div class="comments-icon">
+                  <ion-icon name="person-circle-outline"></ion-icon>
+                </div>
+                <div class="comments-people-id">
+                  <div class="comments-header">
+                    <h3>Ricky Harun</h3>
+                  </div>
+                  <div class="comments-body">
+                    <p>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      In aliquid qui tempora. Distinctio officia id fugiat
+                      laudantium odit! Labore omnis repellendus officiis sit
+                      natus. Nihil obcaecati illo ut error autem et magni?
+                      Itaque enim fugiat perferendis magni voluptatibus qui
+                      corrupti maiores praesentium ea, tempora culpa illo quia
+                      repudiandae velit quas.
+                    </p>
+                  </div>
+                  <div class="comments-footer">
+                    <ion-icon name="time-outline"></ion-icon>
+
+                    <time datetime="2022-03-07">7 March, 2022</time>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
         <!-- END OF HOME -->
       </article>
     </main>
+
+    <!-- START OF FOOTER -->
+
+    <footer class="footer">
+      <div class="footer-top section">
+        <div class="container">
+          <div class="footer-brand">
+            <a href="#" class="logo">Desinic</a>
+
+            <p class="text">
+              Maecenas pellentesque placerat quam, in finibus nisl tincidunt
+              sed. Aliquam magna augue, malesuada ut feugiat eget, cursus eget
+              felis.
+            </p>
+
+            <ul class="social-list">
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Our links</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Home</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">About Us</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Services</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Team</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Blog</a>
+            </li>
+          </ul>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Our Services</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Strategy & Research</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Web Development</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Web Solution</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Digital Marketing</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">App Design</a>
+            </li>
+          </ul>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Other links</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">FAQ</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Portfolio</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Privacy Policy</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Terms & Conditions</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Support</a>
+            </li>
+          </ul>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Contact Us</p>
+            </li>
+
+            <li class="footer-item">
+              <div class="footer-item-icon">
+                <ion-icon name="call"></ion-icon>
+              </div>
+
+              <div>
+                <a href="tel:+2484214313" class="footer-item-link"
+                  >+248-421-4313</a
+                >
+                <a href="tel:+2486871365" class="footer-item-link"
+                  >+248-687-1365</a
+                >
+              </div>
+            </li>
+
+            <li class="footer-item">
+              <div class="footer-item-icon">
+                <ion-icon name="mail"></ion-icon>
+              </div>
+
+              <div>
+                <a href="mailto:info@desinic.com" class="footer-item-link"
+                  >info@desinic.com</a
+                >
+                <a href="mailto:help@desinic.com" class="footer-item-link"
+                  >help@desinic.com</a
+                >
+              </div>
+            </li>
+
+            <li class="footer-item">
+              <div class="footer-item-icon">
+                <ion-icon name="location"></ion-icon>
+              </div>
+
+              <address class="footer-item-link">
+                Pontiac, Michigan, United States of America
+              </address>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">
+          &copy; 2024 <a href="#" class="copyright-link">Ardi Okdianto</a>. All
+          Right Reserved
+        </p>
+      </div>
+    </footer>
+    <!-- END OF FOOTER -->
+
     <!--  #GO TO TOP -->
     <a href="#top" class="go-top active" aria-label="Go To Top" data-go-top>
       <ion-icon name="arrow-up-outline"></ion-icon>
